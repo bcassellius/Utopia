@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utopia Travel Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" href="assets/css/stylesheet.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Utopia Travel</h1>
+      <div class="nav">
+        <nav class="right hide-on-med-and-down">
+          <ul>
+            <li>
+              <a href="#about-us">About us</a>
+            </li>
+            <li>
+              <a href="#city-search">City Search</a>
+            </li>
+            <li>
+              <a href="#weather-search">Weather</a>
+            </li>
+            <li>
+              <a href="#dollar-amount">Currency</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main style="background-image: url('assets/images/background8.jpg')">
+      <div id="about-us">
+        <p>Welcome to Travel Utopia! Do you still have some doubts where to go? We are ready to give some additional information about cities!</p>
+        <p>With us you can:</p>
+      <div class="carousel carousel-slider center">
+        <div class="carousel-item" href="#one!">
+          <h2>Search Any City In The World</h2>
+          <p class="">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laboriosam explicabo tempore fugiat quo maiores voluptates non sint autem nostrum!
+          </p>
+        </div>
+        <div class="carousel-item" href="#two!">
+          <h2>See The Current Weather Anywhere</h2>
+          <p class="">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident possimus doloremque dolore. Culpa at, repudiandae similique laudantium odit
+            magnam aliquam?
+          </p>
+        </div>
+        <div class="carousel-item" href="#three!">
+          <h2>Convert Your Dollars To Any Currency</h2>
+          <p class="">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam laboriosam architecto dignissimos natus numquam! Earum voluptates sed rerum iste
+            maxime!
+          </p>
+        </div>
+        <div class="carousel-item" href="#four!">
+          <h2>Don't Know Where You Wanna Go Yet?</h2>
+          <p class="">Use the continent search feature to find the destination of your dreams.</p>
+        </div>
+      </div>
+
+      <!-- Search cards -->
+      <!-- We're using a tags with btn classes rather than making our own buttons? -->
+      <div class="card">
+        <div class="card-content">
+          <h3>SEARCH FOR A CITY</h3>
+          <span class="card-title">Which city would you like to visit?</span>
+          <div class="input-field">
+            <input type="text" id="city-search" />
+            <label for="city-search">Enter City Name</label>
+            <a href="#" class="btn">Search</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h3>WEATHER SEARCH</h3>
+          <span class="card-title">Would you like to see the weather in a particular city?</span>
+          <div class="input-field">
+            <input type="text" id="weather-search" />
+            <label for="weather-search">Enter City Name</label>
+            <a href="#" class="btn">Search</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h3>CURRENCY CONVERTER</h3>
+          <span class="card-title">Enter a dollar amount to convert to new currency</span>
+          <div class="input-field">
+            <input type="text" id="dollar-amount" />
+            <label for="dollar-amount">Enter City Name</label>
+            <a href="#" class="btn">Search</a>
+          </div>
+        </div>
+      </div>
+
+      <section id="continent">
+        <div class="row">
+          <a class="cont col 2" href="https://en.wikipedia.org/wiki/List_of_North_American_cities_by_population" target="_blank"> List of Cities in North America </a>
+          <a class="cont col 2" href="https://en.wikipedia.org/wiki/List_of_cities_in_South_America" target="_blank"> List of Cities in South America </a>
+          <a class="cont col 2" href="https://en.wikipedia.org/wiki/List_of_European_cities_by_population_within_city_limits" target="_blank">
+            List of Cities in Europe
+          </a>
+          <a class="cont col 2" href="https://en.wikipedia.org/wiki/List_of_Asian_cities_by_population_within_city_limits" target="_blank"> List of Cities in Asia </a>
+          <a class="cont col 2" href="https://en.wikipedia.org/wiki/List_of_Asian_cities_by_population_within_city_limits" target="_blank">
+            List of Cities in Africa
+          </a>
+          <a class="cont col 2" href="https://en.wikipedia.org/wiki/List_of_cities_in_Australia_by_population" target="_blank"> List of Cities in Austrelia </a>
+        </div>
+      </section>
+
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="./assets/js/script.js"></script>
+    </main>
+  </body>
+</html>
