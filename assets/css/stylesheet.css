@@ -11,6 +11,8 @@
   font-size: 20px;
 }
 
+
+
 /* navigation */
 nav {
   background-color: transparent;
@@ -30,6 +32,7 @@ h1 {
   font-family: Bradley Hand, cursive;
   font-size: 50px;
   color: white;
+  text-shadow: 7px 7px #0a043b;
 }
 
 header {
@@ -55,13 +58,16 @@ header a {
 p {
   text-align: center;
   color: white;
+  text-size-adjust:initial;
   font-family: Bradley Hand, cursive;
+  text-shadow: 1.5px 1.5px #0a043b;
+  font-size: 30px;
+
 }
 
 .carousel {
-  background-color: rgba(97, 136, 161, 0.5);
   color: white;
-  text-shadow: 1px 1px black;
+  text-shadow:1.5px 1.5px #0a043b;
   /* max-width: 90%; */
   margin: 0 auto;
   font-family: Bradley Hand, cursive;
@@ -75,9 +81,29 @@ p {
 
 /* footer */
 #continent {
-  display: block;
-  text-align: center;
+  display:block;
+  text-align:center;
+  background: var(--tertiary-color);
+  opacity: 0.8;
+
 }
+
+#continent a{
+  color: white;
+  font-size: 18px;
+  
+}
+
+#continent h1{
+  color: white;
+  font-size: 30px;
+  text-shadow: 1.5px 1.5px #0a043b
+}
+
+#continent a:hover{
+  font-size: 1.5rem;
+}
+
 
 a {
   padding: 20px 20px;
