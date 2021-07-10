@@ -7,23 +7,18 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 5px;
+  padding: 0px;
   font-size: 20px;
 }
 
 /* navigation */
 nav {
-  background-color: transparent;
-  box-shadow: none;
+  background-color: var(--tertiary-color);
 }
 
 nav ul a {
   font-size: 25px;
-}
-
-/* heading */
-html {
-  scroll-padding-top: 60px; /* height of sticky header */
+  text-decoration: underline;
 }
 
 h1 {
@@ -31,21 +26,6 @@ h1 {
   font-size: 50px;
   color: white;
   text-shadow: 7px 7px #0a043b;
-}
-
-header {
-  padding: 20px 35px;
-  background-color: var(--tertiary-color);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: 80%;
-  z-index: 9999;
 }
 
 header a {
@@ -65,7 +45,6 @@ p {
 .carousel {
   color: white;
   text-shadow: 1.5px 1.5px #0a043b;
-  /* max-width: 90%; */
   margin: 0 auto;
   font-family: Bradley Hand, cursive;
 }
@@ -74,6 +53,11 @@ p {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
+}
+
+.modal p {
+  text-shadow: none;
+  color: black;
 }
 
 /* footer */
