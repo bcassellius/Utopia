@@ -1,0 +1,29 @@
+:root {
+  --primary-color: #f6f9fa;
+  --secondary-color: #1f3368;
+  --tertiary-color: rgb(97, 136, 161);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  background-color: var(--tertiary-color);
+}
+
+.location-info {
+  margin: 20px 0;
+}
+
+.weather-box {
+  border: 1px solid black;
+  height: 40vh;
+  margin: 20px 0;
+}
+
+.weather-box h3 {
+  font-size: 30px;
+}

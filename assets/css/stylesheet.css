@@ -11,8 +11,6 @@
   font-size: 20px;
 }
 
-
-
 /* navigation */
 nav {
   background-color: transparent;
@@ -58,16 +56,15 @@ header a {
 p {
   text-align: center;
   color: white;
-  text-size-adjust:initial;
+  text-size-adjust: initial;
   font-family: Bradley Hand, cursive;
   text-shadow: 1.5px 1.5px #0a043b;
   font-size: 30px;
-
 }
 
 .carousel {
   color: white;
-  text-shadow:1.5px 1.5px #0a043b;
+  text-shadow: 1.5px 1.5px #0a043b;
   /* max-width: 90%; */
   margin: 0 auto;
   font-family: Bradley Hand, cursive;
@@ -81,29 +78,26 @@ p {
 
 /* footer */
 #continent {
-  display:block;
-  text-align:center;
+  display: block;
+  text-align: center;
   background: var(--tertiary-color);
   opacity: 0.8;
-
 }
 
-#continent a{
+#continent a {
   color: white;
   font-size: 18px;
-  
 }
 
-#continent h1{
+#continent h1 {
   color: white;
   font-size: 30px;
-  text-shadow: 1.5px 1.5px #0a043b
+  text-shadow: 1.5px 1.5px #0a043b;
 }
 
-#continent a:hover{
+#continent a:hover {
   font-size: 1.5rem;
 }
-
 
 a {
   padding: 20px 20px;
