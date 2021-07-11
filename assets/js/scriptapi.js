@@ -133,7 +133,7 @@ function updateWeatherModal() {
     if (response.ok){
       response.json().then(function(data){
         console.log(data)
-        $('#weather-modal-content').text(`Current weather in ${data.name} is ${data.main.temp} and ${data.weather[0].description}.`)
+        $('#weather-modal-content').text(`Current weather in ${data.name} is ${Math.round(data.main.temp)} and ${data.weather[0].description}.`)
       })
     }else{
       $('#weather-modal-content').text(`Please, enter correct city name.`)
