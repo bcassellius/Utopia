@@ -4,6 +4,8 @@ let currencyConverterApi = `http://www.geoplugin.net/json.gp?base_currency=${new
 
 // the currency api converts based on ISO 4217 codes (i.e. EUR for euros, USD FOR u.S. dollars)
 // convert the search location to the appropriate currency code
+// take the city and find it's region
+// search for the regions ISO
 function findCurrencyCode() {}
 
 function runLater() {
@@ -15,6 +17,15 @@ function runLater() {
       console.log(`1 USD = ${data.geoplugin_currencyConverter} euros`);
     });
 }
+
+let mapquestApi = `http://www.mapquestapi.com/search/v3/prediction?key=M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ&limit=5&collection=poi&q=milwaukee`;
+fetch(mapquestApi)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data.results);
+
+    for (i = 0; i < data.results.length; i++) console.log(data.results[i].name);
+  });
 
 //   testing
 let key = `zyAk0vwUuaz2iWvaUGfsN9GfdQyi5dFO`;
