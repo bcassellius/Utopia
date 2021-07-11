@@ -8,7 +8,3 @@ $(document).ready(function () {
     $(`.carousel.carousel-slider`).carousel(`next`);
   }, 5000);
 });
-
-$(document).ready(function () {
-  $('.modal').modal();
-});

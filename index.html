@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="assets/css/stylesheet.css" />
   </head>
   <body>
-    <header>
-      <h1>Utopia Travel</h1>
-      <img src="" alt="" class="placeholder">
-      <div class="nav">
-        <nav class="right hide-on-med-and-down">
-          <ul>
+    <!-- <header> -->
+    <!-- <img src="" alt="" class="placeholder"> -->
+    <div class="navbar-fixed">
+      <nav class="right hide-on-med-and-down">
+        <a class="brand-logo">Utopia Travel</a>
+        <div class="nav-wrapper">
+          <ul class="right">
             <li>
               <a href="#about-us">About us</a>
             </li>
@@ -30,48 +31,54 @@
             <li>
               <a href="#our-team">Our team</a>
             </li>
-  
           </ul>
-        </nav>
-      </div>
-    </header>
+        </div>
+      </nav>
+    </div>
+    <!-- </header> -->
     <main style="background-image: url('assets/images/background8.jpg')">
       <div id="about-us">
-        
-        <p>Welcome to Utopia Travel! <br>
-           Do you still have some doubts about where to go? <br>
-           We are here to give you some information about cities from around the world! <br>
-           Let us help you find information about your perfect destination. <br>
-            Then make your trip a smooth success using some of our helpful tools.</p>
+        <p>
+          Welcome to Utopia Travel! <br />
+          Do you still have some doubts about where to go? <br />
+          We are here to give you some information about cities from around the world! <br />
+          Let us help you find information about your perfect destination. <br />
+          Then make your trip a smooth success using some of our helpful tools.
+        </p>
 
         <p>With us you can:</p>
-      <div class="carousel carousel-slider center">
-        <div class="carousel-item" href="#one!">
-          <h2>Search Any City In The World</h2>
-          <p class="">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laboriosam explicabo tempore fugiat quo maiores voluptates non sint autem nostrum!
-          </p>
-        </div>
-        <div class="carousel-item" href="#two!">
-          <h2>See The Current Weather Anywhere</h2>
-          <p class="">
-            Unsure of what to pack? Use the local weather for your travel destination to plan your wardrobe. You can also use the weather to help you plan what types of activities you may be able to do while there. This will help you prevent travel to an unexpected season.
-          </p>
-        </div>
-        <div class="carousel-item" href="#three!">
-          <h2>Convert Your U.S. Dollars To Another Currency</h2>
-          <p class="">
-            Do you want to travel to a different country? Make sure you know what money to bring. Use this converter tool to see how much your U.S. dollars are worth in another country's currency.
-          </p>
-        </div>
-        <div class="carousel-item" href="#four!">
-          <h2>Don't Know Where You Want To Go Yet?</h2>
-          <p class="">Use the continent search feature to find the destination of your dreams. Simply click on the continent's name to find a list of cities you could visit.</p>
+        <div class="carousel carousel-slider center">
+          <div class="carousel-item" href="#one!">
+            <h2>Search Any City In The World</h2>
+            <p class="">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laboriosam explicabo tempore fugiat quo maiores voluptates non sint autem
+              nostrum!
+            </p>
+          </div>
+          <div class="carousel-item" href="#two!">
+            <h2>See The Current Weather Anywhere</h2>
+            <p class="">
+              Unsure of what to pack? Use the local weather for your travel destination to plan your wardrobe. You can also use the weather to help you plan
+              what types of activities you may be able to do while there. This will help you prevent travel to an unexpected season.
+            </p>
+          </div>
+          <div class="carousel-item" href="#three!">
+            <h2>Convert Your U.S. Dollars To Another Currency</h2>
+            <p class="">
+              Do you want to travel to a different country? Make sure you know what money to bring. Use this converter tool to see how much your U.S. dollars
+              are worth in another country's currency.
+            </p>
+          </div>
+          <div class="carousel-item" href="#four!">
+            <h2>Don't Know Where You Want To Go Yet?</h2>
+            <p class="">
+              Use the continent search feature to find the destination of your dreams. Simply click on the continent's name to find a list of cities you could
+              visit.
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- Search cards -->
-      <!-- We're using a tags with btn classes rather than making our own buttons? -->
       <div class="card">
         <div class="card-content">
           <h3>SEARCH FOR A CITY</h3>
@@ -99,36 +106,55 @@
       <div class="card">
         <div class="card-content">
           <h3>CURRENCY CONVERTER</h3>
-          <span class="card-title">Enter a dollar amount to convert to new currency.</span>
+          <span class="card-title">Search a city and we'll show you what your currency is worth.</span>
           <div class="input-field">
             <input type="text" id="dollar-amount" />
-            <label for="dollar-amount">US Dollar Amount</label>
-            <a href="#" class="btn">Search</a>
+            <label for="dollar-amount">Enter City</label>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Search</a>
+          </div>
+        </div>
+        <div id="modal1" class="modal bottom-sheet">
+          <div class="modal-content">
+            <h4>Currency Conversion</h4>
+            <p>1 {user currency} is worth {search currency}</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
           </div>
         </div>
       </div>
 
       <section id="continent" class="cont">
-       
-          <h1>All continents with all cities!</h1>
-          <div class="row">
-            <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_North_American_cities_by_population" target="_blank"> List of Cities in North America </a>
-            <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_cities_in_South_America" target="_blank"> List of Cities in South America </a>
-            <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_European_cities_by_population_within_city_limits" target="_blank">
-              List of Cities in Europe
-            </a>
-            <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_Asian_cities_by_population_within_city_limits" target="_blank"> List of Cities in Asia </a>
-            <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_Asian_cities_by_population_within_city_limits" target="_blank">
-              List of Cities in Africa
-            </a>
-            <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_cities_in_Australia_by_population" target="_blank"> List of Cities in Australia </a>
-                    </div>
-          </div>
+        <h1>All continents with all cities!</h1>
+        <div class="row">
+          <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_North_American_cities_by_population" target="_blank">
+            List of Cities in North America
+          </a>
+          <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_cities_in_South_America" target="_blank">
+            List of Cities in South America
+          </a>
+          <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_European_cities_by_population_within_city_limits" target="_blank">
+            List of Cities in Europe
+          </a>
+          <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_Asian_cities_by_population_within_city_limits" target="_blank">
+            List of Cities in Asia
+          </a>
+          <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_Asian_cities_by_population_within_city_limits" target="_blank">
+            List of Cities in Africa
+          </a>
+          <a class="cont col s12 m6 l2" href="https://en.wikipedia.org/wiki/List_of_cities_in_Australia_by_population" target="_blank">
+            List of Cities in Australia
+          </a>
+        </div>
       </section>
-
-      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      <script src="./assets/js/script.js"></script>
+      <footer>
+        <p>I'm a footer placeholder</p>
+      </footer>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/scriptapi.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
