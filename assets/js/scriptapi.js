@@ -52,5 +52,69 @@ fetch('https://test.api.amadeus.com/v1/security/oauth2/token', {
 // // fetch(amadeusApi)
 // //   .then((response) => response.json())
 // //   .then((data) => {
-// //     console.log(data);
-// //   });
+  // //     console.log(data);
+  // //   });
+  
+  
+  
+  
+  
+//   // Weather api
+  
+//   // Bri's Key:  d062b7cc2ea4bdcd13c368fce11ee8b1
+  
+  
+//   const weather = document.querySelector("#weather-search")
+//   const submit = document.querySelector("#submit")
+//   console.log(weather)  
+  
+//   submit.addEventListener("submit", weatherSearchSubmitHandler)
+  
+// // search button clicked
+// var weatherSearchSubmitHandler = function(event) {
+//   event.preventDefault();
+//   // get value from input element
+//   var cityName = weather.value.trim();
+//   if (cityName) {
+//     getCityData(cityName);
+//     cityName.value = "";
+//     console.log(cityName)
+//   } else {
+//     alert("Please enter the name of a city.")
+//   }
+// }
+
+  
+// function getCityData(cityName){
+//   // get the data for the city's name
+//   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=d062b7cc2ea4bdcd13c368fce11ee8b1`)
+//   .then(response =>{
+//     return response.json()
+//   })
+//   // use the data from city's name to get the latitude and longidude coordinates
+//   .then(data =>{
+//     console.log(data)
+//     let lat = data.coord.lat
+//     let lon = data.coord.lon
+//     // get the data for the city by using the city's latitude and longitude
+//     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly,alerts&appid=d062b7cc2ea4bdcd13c368fce11ee8b1`)
+//     .then(response=>{
+//       return response.json()
+//     })
+//     .then(data =>{
+//       rendersTodaysWeather(data)
+      
+//       // Create a new JavaScript Date object based on the timestamp
+//       let unix_timestamp = data.current.dt
+//       var date = new Date(unix_timestamp * 1000);
+//       console.log(date)
+//       var currentDate = Intl.DateTimeFormat("en-US").format(date)
+//       console.log(Intl.DateTimeFormat("en-US").format(date))
+//       console.log(currentDate)
+//       console.log(data.current.temp)
+//       console.log(data.current.humidity)
+      
+      
+//     })
+//   })
+// }  
