@@ -16,3 +16,17 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('select').formSelect();
 });
+
+function saveLocation() {
+  let searchLocation = $(`#city-search`).val();
+
+  if (!searchLocation) {
+    // tell the user to enter a city
+    return;
+  } else {
+    localStorage.setItem(`Search Location`, searchLocation);
+    location.href = './index2.html';
+  }
+}
+
+// $(`#city-search-button`).on(`click`, saveLocation);

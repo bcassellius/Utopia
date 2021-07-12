@@ -1,22 +1,6 @@
-let currencyCode;
-let newCurrencyCode; // placeholder
-let currencyConverterApi = `http://www.geoplugin.net/json.gp?base_currency=${newCurrencyCode}`;
-
-function findCurrencyCode() {}
-
-function runLater() {
-  fetch(currencyConverterApi)
-    .then((response) => response.json())
-    .then(function (data) {
-      console.log(data);
-      console.log(data.geoplugin_currencyConverter);
-      console.log(`1 USD = ${data.geoplugin_currencyConverter} euros`);
-    });
-}
-
 function updateCurrencyModal() {
-  newCurrencyCode = $(`.select-dropdown`).val().slice(0, 3);
-  currencyConverterApi = `http://www.geoplugin.net/json.gp?base_currency=${newCurrencyCode}`;
+  let newCurrencyCode = $(`.select-dropdown`).val().slice(0, 3);
+  let currencyConverterApi = `http://www.geoplugin.net/json.gp?base_currency=${newCurrencyCode}`;
 
   fetch(currencyConverterApi)
     .then((response) => response.json())
@@ -31,6 +15,32 @@ function updateCurrencyModal() {
 }
 $(`#currency-search-button`).on(`click`, updateCurrencyModal);
 
+function findSearchLocation() {
+  let searchLocation = $(`#city-search`).val();
+  key = `M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ`; // lashaun's key
+
+  let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchLocation}`;
+
+  if (!searchLocation) {
+    // please enter a location
+    return;
+  } else {
+    fetch(geoFinderApi).then((response) => {
+      if (response.ok) {
+        response.json().then((data) => {
+          searchLocation = data.results[0].locations[0].adminArea5;
+          localStorage.setItem(`Search Location`, searchLocation);
+          location.href = './index2.html';
+        });
+      } else {
+        // we couldn't find that city
+        return;
+      }
+    });
+  }
+}
+$(`#city-search-button`).on(`click`, findSearchLocation);
+
 // let mapquestApi = `http://www.mapquestapi.com/search/v3/prediction?key=M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ&limit=5&collection=poi&q=milwaukee`;
 // fetch(mapquestApi)
 //   .then((response) => response.json())
@@ -40,8 +50,7 @@ $(`#currency-search-button`).on(`click`, updateCurrencyModal);
 //     for (i = 0; i < data.results.length; i++) console.log(data.results[i].name);
 //   });
 
-//   // Weather api
-
+// Weather api
 const apiKey = '5569f0d8093687922f5c0ba190e02e6c'; // Olga's APIkey
 
 //   // Bri's Key:  d062b7cc2ea4bdcd13c368fce11ee8b1
@@ -101,6 +110,8 @@ const apiKey = '5569f0d8093687922f5c0ba190e02e6c'; // Olga's APIkey
 
 function updateWeatherModal() {
   let city = $('#weather-search').val().trim();
+  $(`#weather-search`).val(``);
+
   if (!city) {
     $('#weather-modal-content').text(`Please, enter city name.`);
   } else {
@@ -108,7 +119,6 @@ function updateWeatherModal() {
     fetch(URL).then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          console.log(data);
           $('#weather-modal-content').text(`Current weather in ${data.name} is ${Math.round(data.main.temp)} and ${data.weather[0].description}.`);
         });
       } else {
@@ -118,4 +128,4 @@ function updateWeatherModal() {
   }
 }
 
-$('#city-search-button').on('click', updateWeatherModal);
+$('#weather-search-button').on('click', updateWeatherModal);
