@@ -24,10 +24,14 @@ nav {
   margin: 20px 0;
 }
 
-.forcast-container h3 {
+.forcast-container | h3 {
   font-size: 30px;
 }
 
 .travel-sites {
   margin: 10px 0;
+}
+
+.list-group-item{
+  font-size: 30px;
 }
