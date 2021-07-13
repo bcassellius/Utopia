@@ -71,10 +71,10 @@ function displayHotelsAndRestaurants() {
   lon = localStorage.getItem(`Longitude`);
 
   fetch(`https://discover.search.hereapi.com/v1/
-  discover
-  ?at=${lat},${lon}
-  &q=restaurant
-  &apiKey=${key}`)
+discover
+?at=${lat},${lon}
+&q=restaurant
+&apiKey=${key}`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -84,10 +84,10 @@ function displayHotelsAndRestaurants() {
     });
 
   fetch(`https://discover.search.hereapi.com/v1/
-  discover
-  ?at=${lat},${lon}
-  &q=hotel
-  &apiKey=${key}`)
+discover
+?at=${lat},${lon}
+&q=hotel
+&apiKey=${key}`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -97,6 +97,25 @@ function displayHotelsAndRestaurants() {
     });
 }
 
+//  this api is iffy*
+function displayImages() {
+  fetch(`https://api.pexels.com/v1/search?query=${searchLocation}`, {
+    headers: {
+      Authorization: '563492ad6f91700001000001c8cea40a6038478d89f44dd50b19416f',
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      $(`.hi`).attr(`src`, result.photos[0].src.landscape);
+      for (i = 1; i < 6; i++) {
+        let pi;
+        $(`.slider-images`)[i - 1].setAttribute(`src`, result.photos[i + 1].src.landscape);
+      }
+    });
+}
+
+// displayImages();
 collectCityData();
 getLatitudeLongitude();
 displayHotelsAndRestaurants();
