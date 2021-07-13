@@ -39,6 +39,7 @@ function collectCityData() {
       });
     }
   });
+  getLatitudeLongitude();
 }
 
 function getLatitudeLongitude() {
@@ -47,11 +48,11 @@ function getLatitudeLongitude() {
     .then((data) => {
       let lat = data.results[0].locations[0].latLng.lat;
       let lon = data.results[0].locations[0].latLng.lng;
-      console.log(lat, lon);
 
       localStorage.setItem(`Longitude`, lon);
       localStorage.setItem(`Latitude`, lat);
     });
+  displayHotelsAndRestaurants();
 }
 
 function displayHotelsAndRestaurants() {
@@ -66,7 +67,6 @@ discover
 &apiKey=${key}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       for (i = 0; i < 5; i++) {
         $(`.travel-sites`)[i].textContent = data.items[i].address.label;
       }
@@ -79,7 +79,6 @@ discover
 &apiKey=${key}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       for (i = 5; i < 10; i++) {
         $(`.travel-sites`)[i].textContent = data.items[i].address.label;
       }
@@ -104,22 +103,36 @@ function displayImages() {
     });
 }
 
-function saveNewLocation() {
-  let searchNewCity = $(`#search`).val();
-  if (!searchNewCity) {
-    // tell the user to enter a city
+function findSearchLocation() {
+  let searchLocation = $(`#search`).val();
+  key = `M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ`; // lashaun's key
+
+  let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchLocation}`;
+
+  if (!searchLocation) {
+    // please enter a location
     return;
   } else {
-  localStorage.setItem(`Search Location`, SearchNewCity);
-  location.reload()
+    fetch(geoFinderApi).then((response) => {
+      if (response.ok) {
+        response.json().then((data) => {
+          searchLocation = data.results[0].locations[0].adminArea5;
+          console.log(searchLocation);
+          localStorage.setItem(`Search Location`, searchLocation);
+
+          $(`#search`).val(``);
+
+          collectCityData();
+        });
+      }
+    });
   }
 }
 
-
-// $(`#material-icons`).on(`click`, saveNewLocation);
-
+$(`.search-button`).on(`click`, () => {
+  event.preventDefault();
+  findSearchLocation();
+});
 
 // displayImages();
 collectCityData();
-getLatitudeLongitude();
-displayHotelsAndRestaurants();
