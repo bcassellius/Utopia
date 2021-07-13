@@ -8,28 +8,26 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0px;
-    font-size: 20px;
+    font-size: 50px;
   }
   
   header {
     padding: 20px;
     background-color: rgb(97, 136, 161);
-    text-emphasis-color: (var(--tertiary-color));
     text-align:left;
     font-size: 2rem;
-    color:var(--primary-color)
   }
    
     h1 {
     font-weight:bold;
-    font-size: 36px;
+    font-size: 50px;
     color:var(--tertiary-color);;
     margin: auto;
     display:flexbox;
    text-align:center;
   }
   
-  .team-members img{
+  .member img{
     width: 35%;
     float: left;
   }
@@ -40,7 +38,7 @@
 
   .member-bio {
     display:flexbox;
-    padding: 5px 50 px;
+    padding: 10px 50 px;
     margin:auto;
     float:initial;
     width: 800px;
