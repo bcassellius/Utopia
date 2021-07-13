@@ -1,14 +1,3 @@
-$(document).ready(function () {
-  $(`.carousel.carousel-slider`).carousel({
-    duration: 200,
-    fullWidth: true,
-    indicators: true,
-  });
-  setInterval(function () {
-    $(`.carousel.carousel-slider`).carousel(`next`);
-  }, 5000);
-});
-
 let searchLocation = localStorage.getItem(`Search Location`);
 let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ&location=${searchLocation}`;
 
@@ -114,6 +103,21 @@ function displayImages() {
       }
     });
 }
+
+function saveNewLocation() {
+  let searchNewCity = $(`#search`).val();
+  if (!searchNewCity) {
+    // tell the user to enter a city
+    return;
+  } else {
+  localStorage.setItem(`Search Location`, SearchNewCity);
+  location.reload()
+  }
+}
+
+
+// $(`#material-icons`).on(`click`, saveNewLocation);
+
 
 // displayImages();
 collectCityData();
