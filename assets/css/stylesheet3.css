@@ -13,19 +13,19 @@
   
   header {
     padding: 20px;
-    background-color: #1f3368;
-    text-emphasis-color: (--primary-color);
+    background-color: rgb(97, 136, 161);
+    text-emphasis-color: (var(--tertiary-color));
     text-align:left;
     font-size: 2rem;
     color:var(--primary-color)
   }
-    
+   
     h1 {
     font-weight:bold;
     font-size: 36px;
-    color: #1f3368;;
-    margin: 0 auto;
-    display: inline;
+    color:var(--tertiary-color);;
+    margin: auto;
+    display:flexbox;
    text-align:center;
   }
   
@@ -35,14 +35,16 @@
   }
   
 .container {
-  align-content:center;
+  align-content:space-between;
 }
 
   .member-bio {
     padding: 35px;
     float: left;
     width: 65%;
-    align-content:center;
+    align-content:space-around;
+    color:var(--tertiary-color);
+  
   }
   
   .text-left {
@@ -56,7 +58,9 @@
   .member-bio h3 {
     font-size: 32px;
     margin-bottom: 8px;
-    align-content:center;
+    align-content:center
+    var(--tertiary-color);
+    display:flexbox;
   }
   
   .member-bio h4 {
@@ -64,10 +68,14 @@
     font-size: 26px;
     margin-bottom: 25px;
     align-content:center;
+    color:var(--tertiary-color);
+    display:flexbox;
   }
   
   .member-bio p{
     font-size: 17px;
     margin-bottom: 17px;
     align-content:center;
+    color:var(--tertiary-color);
+    display:flexbox;
   }
