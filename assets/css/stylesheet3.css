@@ -39,20 +39,24 @@
 }
 
   .member-bio {
-    padding: 35px;
-    float: left;
-    width: 65%;
-    align-content:space-around;
+    display:flexbox;
+    padding: 5px 50 px;
+    margin:auto;
+    float:initial;
+    width: 800px;
+    align-items:center;
     color:var(--tertiary-color);
   
   }
   
   .text-left {
     text-align: left;
+    display:flexbox;
   }
   
   .text-right {
     text-align: right;
+    display:flexbox;
   }
   
   .member-bio h3 {
@@ -60,7 +64,7 @@
     margin-bottom: 8px;
     align-content:center
     var(--tertiary-color);
-    display:flexbox;
+    display:inline-block;
   }
   
   .member-bio h4 {
