@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Utopia Travel Search</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/stylesheet.css" />
   </head>
   <body>
@@ -51,9 +52,9 @@
           <div class="carousel-item" href="#one!">
             <h2>Search Any City In The World</h2>
             <p class="">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laboriosam explicabo tempore fugiat quo maiores voluptates non sint autem
-              nostrum!
+              Search for a city to find out more specifics including currency conversion rate, detailed weather, and information about the city.
             </p>
+            <!-- <img class="image" src="./assets/images/location.png" alt=""> -->
           </div>
           <div class="carousel-item" href="#two!">
             <h2>See The Current Weather Anywhere</h2>
@@ -61,6 +62,7 @@
               Unsure of what to pack? Use the local weather for your travel destination to plan your wardrobe. You can also use the weather to help you plan
               what types of activities you may be able to do while there. This will help you prevent travel to an unexpected season.
             </p>
+            <!-- <img class="image" src="./assets/images/weather.png" alt=""> -->
           </div>
           <div class="carousel-item" href="#three!">
             <h2>Convert Your U.S. Dollars To Another Currency</h2>
@@ -68,6 +70,7 @@
               Do you want to travel to a different country? Make sure you know what money to bring. Use this converter tool to see how much your U.S. dollars
               are worth in another country's currency.
             </p>
+            <!-- <img class="image" src="./assets/images/currency.png" alt=""> -->
           </div>
           <div class="carousel-item" href="#four!">
             <h2>Don't Know Where You Want To Go Yet?</h2>
@@ -75,6 +78,7 @@
               Use the continent search feature to find the destination of your dreams. Simply click on the continent's name to find a list of cities you could
               visit.
             </p>
+            <!-- <img class="image" src="./assets/images/blue-world.png" alt=""> -->
           </div>
         </div>
       </div>
@@ -82,54 +86,61 @@
       <div class="card">
         <div class="card-content">
           <h3>SEARCH FOR A CITY</h3>
-          <span class="card-title">Which city would you like to visit?</span>
+          <span class="card-title">Search for a city to discover more details.</span>
           <div class="input-field">
             <input type="text" id="city-search" />
             <label for="city-search">Enter City Name</label>
-            <a href="#" class="btn" id="searchBtn">Search</a>
+            <a class="btn" id="city-search-button">Search</a>
           </div>
         </div>
       </div>
-
 
       <div class="card">
         <div class="card-content">
           <h3>WEATHER SEARCH</h3>
           <span class="card-title">Search a city and we'll show you what their current weather is.</span>
-          <div class="input-field"  >
+          <div class="input-field">
             <input type="text" id="weather-search" />
             <label for="weather-search">Enter City Name</label>
-            <!--<button type="submit" id="submit" class="waves-effect waves-light btn">Search</button> -->
-             <a class="waves-effect waves-light btn modal-trigger" id="city-search-button" href="#modalWeather">Search</a> 
-             
-            <!-- <a href="#" class="btn">Search</a> -->
+            <a class="waves-effect waves-light btn modal-trigger" id="weather-search-button" href="#modalWeather">Search</a>
           </div>
         </div>
-         <div id="modalWeather" class="modal bottom-sheet">
+        <div id="modalWeather" class="modal bottom-sheet">
           <div class="modal-content">
-              <h4>Current Weather</h4>
-              <p><span id="weather-modal-content"></span></p>
-            </div>
-            <div class="modal-footer">
-              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-            </div>
+            <h4>Current Weather</h4>
+            <p><span id="weather-modal-content"></span></p>
           </div>
-        </div> 
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+          </div>
+        </div>
+      </div>
 
       <div class="card">
         <div class="card-content">
           <h3>CURRENCY CONVERTER</h3>
-          <span class="card-title">Search a city and we'll show you what your currency is worth.</span>
+          <span class="card-title">See how much your currency is worth around the world. Select a currency to compare with the U.S. dollar.</span>
           <div class="input-field">
-            <input type="text" id="dollar-amount" />
-            <label for="dollar-amount">Enter City</label>
-            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Search</a>
+            <select>
+              <option value="" disabled selected>Choose the currency</option>
+              <option value="">USD (US dollar)</option>
+              <option value="">EUR (Euro)</option>
+              <option value="">JPY (Japanese yen)</option>
+              <option value="">GBP (Pound sterling)</option>
+              <option value="">AUD (Australian dollar)</option>
+              <option value="">CAD (Canadian dollar)</option>
+              <option value="">CHF (Swiss franc)</option>
+              <option value="">CNY (Chinese yuan/renminbi)</option>
+              <option value="">HKD (Hong Kong dollar)</option>
+              <option value="">NZD (New Zealand dollar)</option>
+            </select>
+            <a class="waves-effect waves-light btn modal-trigger" id="currency-search-button" href="#modal1">Search</a>
           </div>
         </div>
         <div id="modal1" class="modal bottom-sheet">
           <div class="modal-content">
-            <h4>Currency Conversion</h4>
-            <p>1 {user currency} is worth {search currency}</p>
+            <h4 id="currency-search-title">Currency Conversion</h4>
+            <p><span id="currency-modal-content">1 {user currency} is worth {search currency}</span></p>
           </div>
           <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
