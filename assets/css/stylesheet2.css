@@ -18,12 +18,20 @@ nav {
   margin: 20px 0;
 }
 
-.weather-box {
+.forcast-container {
   border: 1px solid black;
   height: 40vh;
   margin: 20px 0;
 }
 
-.weather-box h3 {
+.forcast-container | h3 {
+  font-size: 30px;
+}
+
+.travel-sites {
+  margin: 10px 0;
+}
+
+.list-group-item{
   font-size: 30px;
 }

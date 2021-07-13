@@ -40,6 +40,8 @@ p {
   font-family: Bradley Hand, cursive;
   text-shadow: 1.5px 1.5px #0a043b;
   font-size: 30px;
+  margin: 0 auto 35px auto;
+  width: 70%
 }
 
 .carousel {
