@@ -41,14 +41,13 @@ function updateCurrencyModal() {
     .then(function (data) {
       console.log(data);
       let newCurrencyName = $(`.select-dropdown`).val().slice(3).replace(`(`, ``).replace(`)`, ``);
+
       $(`#currency-search-title`).text(newCurrencyName);
 
       let userCurrency = data.geoplugin_currencyCode;
       let convertedCurrency = data.geoplugin_currencyConverter.toFixed(2);
-
-      console.log(userCurrency, convertedCurrency);
-
-      $('#currency-modal-content').text(`${currencyAmount} ${newCurrencyName}  is worth ${convertedCurrency * 100} ${userCurrency}.`);
+      console.log(convertedCurrency);
+      $('#currency-modal-content').text(`${currencyAmount} ${newCurrencyName}  is worth ${convertedCurrency * currencyAmount} ${userCurrency}.`);
     });
 }
 $(`#currency-search-button`).on(`click`, updateCurrencyModal);
