@@ -41,10 +41,8 @@
       <div id="about-us">
         <p>
           Welcome to Utopia Travel! <br />
-          Do you still have some doubts about where to go? 
-          We are here to give you some information about cities from around the world!
-          Let us help you find information about your perfect destination. 
-          Then make your trip a smooth success using some of our helpful tools.
+          Do you still have some doubts about where to go? We are here to give you some information about cities from around the world! Let us help you find
+          information about your perfect destination. Then make your trip a smooth success using some of our helpful tools.
         </p>
 
         <p>With us you can:</p>
@@ -116,12 +114,12 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card row">
         <div class="card-content">
           <h3>CURRENCY CONVERTER</h3>
           <span class="card-title">See how much your currency is worth around the world. Select a currency to compare with the U.S. dollar.</span>
-          <div class="input-field">
-            <select>
+          <div class="input-field col s6">
+            <select class="col s6">
               <option value="" disabled selected>Choose the currency</option>
               <option value="">USD (US dollar)</option>
               <option value="">EUR (Euro)</option>
@@ -134,7 +132,11 @@
               <option value="">HKD (Hong Kong dollar)</option>
               <option value="">NZD (New Zealand dollar)</option>
             </select>
-            <a class="waves-effect waves-light btn modal-trigger" id="currency-search-button" href="#modal1">Search</a>
+            <a class="waves-effect waves-light btn right modal-trigger" id="currency-search-button" href="#modal1">Search</a>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" id="currency-amount" />
+            <label for="currency-amount">Enter desired amount in new currency</label>
           </div>
         </div>
         <div id="modal1" class="modal bottom-sheet">

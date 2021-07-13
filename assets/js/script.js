@@ -31,20 +31,24 @@ function saveLocation() {
 
 // $(`#city-search-button`).on(`click`, saveLocation);
 
-
 function updateCurrencyModal() {
+  let currencyAmount = $(`#currency-amount`).val().trim();
   let newCurrencyCode = $(`.select-dropdown`).val().slice(0, 3);
   let currencyConverterApi = `http://www.geoplugin.net/json.gp?base_currency=${newCurrencyCode}`;
 
   fetch(currencyConverterApi)
     .then((response) => response.json())
     .then(function (data) {
+      console.log(data);
       let newCurrencyName = $(`.select-dropdown`).val().slice(3).replace(`(`, ``).replace(`)`, ``);
       $(`#currency-search-title`).text(newCurrencyName);
 
       let userCurrency = data.geoplugin_currencyCode;
       let convertedCurrency = data.geoplugin_currencyConverter.toFixed(2);
-      $('#currency-modal-content').text(`Every 1 ${userCurrency}  is worth ${convertedCurrency} ${newCurrencyCode}.`);
+
+      console.log(userCurrency, convertedCurrency);
+
+      $('#currency-modal-content').text(`${currencyAmount} ${newCurrencyName}  is worth ${convertedCurrency * 100} ${userCurrency}.`);
     });
 }
 $(`#currency-search-button`).on(`click`, updateCurrencyModal);
