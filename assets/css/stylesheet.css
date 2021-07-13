@@ -35,10 +35,10 @@ header a {
 
 p {
   text-align: center;
-  color: white;
+  color: rgb(97, 136, 161);
   text-size-adjust: initial;
   font-family: Bradley Hand, cursive;
-  text-shadow: 1.5px 1.5px #0a043b;
+  text-shadow: 0.5px 0.5px #0a043b;
   font-size: 30px;
   margin: 0 auto 35px auto;
   width: 70%
@@ -46,9 +46,22 @@ p {
 
 .carousel {
   color: white;
-  text-shadow: 1.5px 1.5px #0a043b;
+  
   margin: 0 auto;
   font-family: Bradley Hand, cursive;
+}
+
+.carousel.carousel-slider .carousel-item h2 {
+  font-size: 28px;
+  color: rgb(97, 136, 161);
+  text-decoration: underline;
+  text-shadow: 1px 1px #0a043b;
+}
+
+.carousel.carousel-slider .carousel-item p {
+  font-size: 28px;
+  color: rgb(97, 136, 161);
+  
 }
 
 .card {
