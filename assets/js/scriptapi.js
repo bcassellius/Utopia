@@ -33,7 +33,7 @@ function findSearchLocation() {
           location.href = './index2.html';
         });
       } else {
-        // we couldn't find that city
+        $('#currency-modal-content').text(`Please select a currency before searching.`);
         return;
       }
     });
@@ -44,60 +44,7 @@ $(`#city-search-button`).on(`click`, findSearchLocation);
 // Weather api
 const apiKey = '5569f0d8093687922f5c0ba190e02e6c'; // Olga's APIkey
 
-//   // Bri's Key:  d062b7cc2ea4bdcd13c368fce11ee8b1
-
-//   const weather = document.querySelector("#weather-search")
-//   const submit = document.querySelector("#submit")
-//   console.log(weather)
-
-//   submit.addEventListener("submit", weatherSearchSubmitHandler)
-
-// // search button clicked
-// var weatherSearchSubmitHandler = function(event) {
-//   event.preventDefault();
-//   // get value from input element
-//   var cityName = weather.value.trim();
-//   if (cityName) {
-//     getCityData(cityName);
-//     cityName.value = "";
-//     console.log(cityName)
-//   } else {
-//     alert("Please enter the name of a city.")
-//   }
-// }
-
-// function getCityData(cityName){
-//   // get the data for the city's name
-//   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=d062b7cc2ea4bdcd13c368fce11ee8b1`)
-//   .then(response =>{
-//     return response.json()
-//   })
-//   // use the data from city's name to get the latitude and longidude coordinates
-//   .then(data =>{
-//     console.log(data)
-//     let lat = data.coord.lat
-//     let lon = data.coord.lon
-//     // get the data for the city by using the city's latitude and longitude
-//     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly,alerts&appid=d062b7cc2ea4bdcd13c368fce11ee8b1`)
-//     .then(response=>{
-//       return response.json()
-//     })
-//     .then(data =>{
-//       rendersTodaysWeather(data)
-
-//       // Create a new JavaScript Date object based on the timestamp
-//       let unix_timestamp = data.current.dt
-//       var date = new Date(unix_timestamp * 1000);
-//       console.log(date)
-//       var currentDate = Intl.DateTimeFormat("en-US").format(date)
-//       console.log(Intl.DateTimeFormat("en-US").format(date))
-//       console.log(currentDate)
-//       console.log(data.current.temp)
-//       console.log(data.current.humidity)
-
-//     })
-//   })
-// }
+// const apiKey = 'd062b7cc2ea4bdcd13c368fce11ee8b1' // Bri's APIkey
 
 function updateWeatherModal() {
   let city = $('#weather-search').val().trim();
@@ -110,13 +57,44 @@ function updateWeatherModal() {
     fetch(URL).then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          $('#weather-modal-content').text(`Current weather in ${data.name} is ${Math.round(data.main.temp)} and ${data.weather[0].description}.`);
+          $('#weather-modal-content').text(`The current weather in ${data.name} is ${Math.round(data.main.temp)}°F with ${data.weather[0].description}.`);
         });
       } else {
-        $('#weather-modal-content').text(`Please, enter correct city name.`);
+        $('#weather-modal-content').text(`Please, enter a correct city name.`);
       }
     });
   }
 }
 
 $('#weather-search-button').on('click', updateWeatherModal);
+
+
+
+// // Create a card for today's forcast
+// function renderForecast(forcast) {
+//   let forcast = $('#weather-search').val().trim();
+//   let stamp = daily.data.dt
+//   const when = new Date(stamp * 1000)
+//   const forcastdate = Intl.DateTimeFormat("en-US").format(when)
+//   const look = data.daily.weather[0].icon
+//   const temp = data.daily.temp.day
+//   const wind = data.daily.wind_speed
+//   const humidity = data.daily.humidity
+//   const card = `<div class="col s12 weather-box"></div>
+//               <h3>Weather:</h3>
+//               <div>
+//                 <ul class="list-group list-group-flush">
+//                   <li class="list-group-item date">${forcastdate}</li>
+//                   <img class="list-group-item weather-icon" src="http://openweathermap.org/img/wn/${look}@2x.png" alt="">
+//                   <li class="list-group-item temp">Temp: ${temp}&#8457</li>
+//                   <li class="list-group-item wind">Wind: ${wind} MPH</li>
+//                 <li class="list-group-item humidity">Humidity: ${humidity}%</li>
+//                 </ul>
+//               </div>`
+              
+// $('.forecast-container').append(card)
+ 
+// }
+
+
+
