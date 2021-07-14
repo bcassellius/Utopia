@@ -2,6 +2,8 @@ let searchLocation = localStorage.getItem(`Search Location`);
 let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ&location=${searchLocation}`;
 
 $(`#city-name`).text(searchLocation);
+$(`.find-out-more`).text(`FIND OUT MORE ABOUT ${searchLocation}`);
+$(`.find-out-more`).attr(`href`, `https://en.wikipedia.org/wiki/${searchLocation}`);
 
 const apiKey = 'd062b7cc2ea4bdcd13c368fce11ee8b1'; // Bri's APIkey
 // const apiKey = '5569f0d8093687922f5c0ba190e02e6c'; // Olga's APIkey
@@ -13,7 +15,6 @@ function collectCityData() {
     if (response.ok) {
       response.json().then(function (data) {
         renderForecast(forecast);
-        // Create a card for today's forcast
 
         function renderForecast() {
           let stamp = data.dt;
@@ -51,11 +52,11 @@ function getLatitudeLongitude() {
 
       localStorage.setItem(`Longitude`, lon);
       localStorage.setItem(`Latitude`, lat);
+      findPointsOfInterest();
     });
-  displayHotelsAndRestaurants();
 }
 
-function displayHotelsAndRestaurants() {
+function findPointsOfInterest() {
   key = `ap-QFdC7AMslspXollmZWcZB09UvlkCPifDAjqGxosk`;
   lat = localStorage.getItem(`Latitude`);
   lon = localStorage.getItem(`Longitude`);
@@ -85,7 +86,6 @@ discover
     });
 }
 
-//  this api is iffy*
 function displayImages() {
   fetch(`https://api.pexels.com/v1/search?query=${searchLocation}`, {
     headers: {
@@ -110,7 +110,7 @@ function findSearchLocation() {
   let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchLocation}`;
 
   if (!searchLocation) {
-    // please enter a location
+    $(`.modal-trigger`).click();
     return;
   } else {
     fetch(geoFinderApi).then((response) => {
@@ -134,5 +134,20 @@ $(`.search-button`).on(`click`, () => {
   findSearchLocation();
 });
 
-// displayImages();
+$(document).ready(function () {
+  $(`.carousel.carousel-slider`).carousel({
+    duration: 200,
+    fullWidth: true,
+    indicators: true,
+  });
+  setInterval(function () {
+    $(`.carousel.carousel-slider`).carousel(`next`);
+  }, 5000);
+});
+
+$(document).ready(function () {
+  $('.modal').modal();
+});
+
+displayImages();
 collectCityData();

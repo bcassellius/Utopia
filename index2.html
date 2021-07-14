@@ -15,10 +15,10 @@
         <div class="nav-wrapper">
           <a href="./index.html" class="brand-logo">Utopia</a>
           <ul class="right">
-            <li><a href="" class="search-button btn">Search</a></li>
+            <li><a href="" class="search-button btn hide-on-med-and-down">Search</a></li>
           </ul>
           <form>
-            <div class="input-field right">
+            <div class="input-field right hide-on-med-and-down">
               <input placeholder="Search New City" id="search" type="search" required />
               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
             </div>
@@ -28,38 +28,38 @@
     </div>
     <main>
       <div class="row">
-        <div class="col s12 m7">
+        <div class="col m12 l7">
           <div class="card location-info">
             <div class="card-image">
               <img class="hi" src="./assets/images/background8.jpg" />
               <h2 class="card-title" id="city-name">City Name</h2>
             </div>
             <div class="card-content">
-             <div class="row">
-               <ul class="col s6">
-                 <h3>Restaurants</h3>
-                <li class="travel-sites">placeholder</li>
-                <li class="travel-sites">placeholder</li>
-                <li class="travel-sites">placeholder</li>
-                <li class="travel-sites">placeholder</li>
-                <li class="travel-sites">placeholder</li>
-              </ul>
-              <ul class="col s6" >
-                 <h3>Hotels</h3>
-                <li class="travel-sites">placeholder</li>
-                <li class="travel-sites">placeholder</li>
-                <li class="travel-sites">placeholder</li>
-                <li class="travel-sites">placeholder</li>
-                <li class="travel-sites">placeholder</li>
-              </ul>
-             </div>
+              <div class="row">
+                <ul class="col s6">
+                  <h3>Restaurants</h3>
+                  <li class="travel-sites">placeholder</li>
+                  <li class="travel-sites">placeholder</li>
+                  <li class="travel-sites">placeholder</li>
+                  <li class="travel-sites">placeholder</li>
+                  <li class="travel-sites">placeholder</li>
+                </ul>
+                <ul class="col s6">
+                  <h3>Hotels</h3>
+                  <li class="travel-sites">placeholder</li>
+                  <li class="travel-sites">placeholder</li>
+                  <li class="travel-sites">placeholder</li>
+                  <li class="travel-sites">placeholder</li>
+                  <li class="travel-sites">placeholder</li>
+                </ul>
+              </div>
             </div>
             <div class="card-action">
-              <a href="#">Find out more about {city}</a>
+              <a href="#" class="find-out-more">Find out more about</a>
             </div>
           </div>
         </div>
-        <div class="row col s12 m5 forecast-container">
+        <div class="row col s12 forecast-container">
           <div class="col s12 weather-box">
             <h3></h3>
             <div>
@@ -70,7 +70,7 @@
                 <li class="list-group-item wind"></li>
                 <li class="list-group-item humidity"></li>
               </ul>
-            </div>  
+            </div>
           </div>
           <div class="col s12">
             <div class="carousel carousel-slider location-images">
@@ -83,9 +83,14 @@
           </div>
         </div>
       </div>
-      <div class="row">
-            
-          </div>
+      <button data-target="modal1" class="btn modal-trigger">Modal</button>
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Oops!</h4>
+          <p>Please enter a city name and then search.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
         </div>
       </div>
     </main>

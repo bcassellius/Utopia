@@ -21,15 +21,12 @@ function saveLocation() {
   let searchedLocation = $(`#city-search`).val();
 
   if (!searchedLocation) {
-    // tell the user to enter a city
     return;
   } else {
     localStorage.setItem(`Search Location`, searchedLocation);
     location.href = './index2.html';
   }
 }
-
-// $(`#city-search-button`).on(`click`, saveLocation);
 
 function updateCurrencyModal() {
   let currencyAmount = $(`#currency-amount`).val().trim();
@@ -39,16 +36,20 @@ function updateCurrencyModal() {
   fetch(currencyConverterApi)
     .then((response) => response.json())
     .then(function (data) {
-      console.log(data);
       let newCurrencyName = $(`.select-dropdown`).val().slice(3).replace(`(`, ``).replace(`)`, ``);
-      $(`#currency-search-title`).text(newCurrencyName);
 
-      let userCurrency = data.geoplugin_currencyCode;
-      let convertedCurrency = data.geoplugin_currencyConverter.toFixed(2);
+      console.log($(`#currency-amount`).val());
+      if (newCurrencyName === `ose the currency` || $(`#currency-amount`).val() === ``) {
+        return;
+      } else {
+        $(`#currency-search-title`).text(newCurrencyName);
 
-      console.log(userCurrency, convertedCurrency);
+        let userCurrency = data.geoplugin_currencyCode;
+        let convertedCurrency = data.geoplugin_currencyConverter;
+        let convertedTotal = (convertedCurrency * currencyAmount).toFixed(2);
 
-      $('#currency-modal-content').text(`${currencyAmount} ${newCurrencyName}  is worth ${convertedCurrency * 100} ${userCurrency}.`);
+        $('#currency-modal-content').text(`${currencyAmount} ${newCurrencyCode}  is worth ${convertedTotal} ${userCurrency}.`);
+      }
     });
 }
 $(`#currency-search-button`).on(`click`, updateCurrencyModal);
@@ -60,7 +61,6 @@ function findSearchLocation() {
   let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchLocation}`;
 
   if (!searchLocation) {
-    // please enter a location
     return;
   } else {
     fetch(geoFinderApi).then((response) => {
@@ -71,8 +71,7 @@ function findSearchLocation() {
           location.href = './index2.html';
         });
       } else {
-        $('#currency-modal-content').text(`Please select a currency before searching.`);
-        return;
+        $(`.city-card-details`).text(`Sorry, something went wrong`);
       }
     });
   }
