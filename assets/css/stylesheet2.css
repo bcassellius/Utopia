@@ -61,3 +61,7 @@ nav a.sidenav-trigger i {
 .modal-trigger {
   display: none;
 }
+
+.modal-content {
+  font-size: 20px;
+}

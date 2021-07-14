@@ -101,12 +101,16 @@ function displayImages() {
     },
   })
     .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      $(`.hi`).attr(`src`, result.photos[0].src.landscape);
-      for (i = 1; i < 6; i++) {
-        let pi;
-        $(`.slider-images`)[i - 1].setAttribute(`src`, result.photos[i + 1].src.landscape);
+    .then((data) => {
+      if (data.photos[0] === undefined) {
+        $(`.no-images-found`).click();
+        return;
+      } else {
+        $(`.hi`).attr(`src`, data.photos[0].src.landscape);
+        for (i = 1; i < 6; i++) {
+          let pi;
+          $(`.slider-images`)[i - 1].setAttribute(`src`, data.photos[i + 1].src.landscape);
+        }
       }
     });
 }
@@ -118,8 +122,8 @@ function findSearchLocation() {
   let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchLocation}`;
 
   if (!searchLocation) {
-    $(`.modal-trigger`).click();
-    return;
+    $(`.unfound-city`).click();
+    // return;
   } else {
     fetch(geoFinderApi).then((response) => {
       if (response.ok) {

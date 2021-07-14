@@ -33,7 +33,6 @@
             <div class="card-image">
               <img class="hi" src="./assets/images/background8.jpg" />
               <h2 class="card-title" id="city-name"></h2>
-              <i class="material-icons">error</i>
             </div>
             <div class="card-content">
               <div class="row">
@@ -84,11 +83,23 @@
           </div>
         </div>
       </div>
-      <button data-target="modal1" class="btn modal-trigger">Modal</button>
+      <button data-target="modal1" class="btn modal-trigger unfound-city">Modal</button>
       <div id="modal1" class="modal">
         <div class="modal-content">
           <h4>Oops!</h4>
           <p>Please enter a city name and then search.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+        </div>
+      </div>
+      <button data-target="modal2" class="btn modal-trigger no-images-found">Modal</button>
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h4>Uh oh!</h4>
+          <i class="material-icons">camera_alt</i>
+          <i class="material-icons">cancel</i>
+          <p>Looks like we couldn't find any photos for this location.</p>
         </div>
         <div class="modal-footer">
           <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
