@@ -14,11 +14,19 @@
 /* navigation */
 nav {
   background-color: var(--tertiary-color);
+  padding: 0, 4px;
 }
 
 nav ul a {
   font-size: 25px;
   text-decoration: underline;
+}
+
+nav,
+nav .nav-wrapper i,
+nav a.sidenav-trigger,
+nav a.sidenav-trigger i {
+  padding-left: 10px;
 }
 
 h1 {
@@ -35,36 +43,43 @@ header a {
 
 p {
   text-align: center;
-  color: rgb(97, 136, 161);
+  color: rgb(51, 74, 88);
   text-size-adjust: initial;
   font-family: Bradley Hand, cursive;
-  text-shadow: 0.5px 0.5px #0a043b;
-  font-size: 30px;
+  text-shadow: 0.2px 0.2px #ffffff;
+  font-size: 25px;
   margin: 0 auto 35px auto;
   width: 70%;
 }
 
 .carousel {
   color: white;
-
   margin: 0 auto;
   font-family: Bradley Hand, cursive;
+  height: 70vh;
 }
 
 .carousel.carousel-slider .carousel-item h2 {
   font-size: 28px;
-  color: rgb(97, 136, 161);
+  color: rgb(51, 74, 88);
+  text-shadow: 0.2px 0.2px #ffffff;
+
   text-decoration: underline;
-  text-shadow: 1px 1px #0a043b;
 }
 
 .carousel.carousel-slider .carousel-item p {
-  font-size: 28px;
-  color: rgb(97, 136, 161);
+  font-size: 23px;
+  color: rgb(51, 74, 88);
+}
+
+.carousel-item img {
+  width: fit-content !important;
+  height: fit-content;
 }
 
 .card {
   margin: 0 0 20px 0;
+  padding: 0;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
 }
@@ -75,6 +90,10 @@ p {
 }
 
 /* footer */
+.cont div {
+  margin-bottom: 0;
+}
+
 #continent {
   display: block;
   text-align: center;
@@ -105,7 +124,7 @@ a:hover {
   font-size: 20px;
 }
 
-.cont:hover {
+.cont a:hover {
   color: var(--secondary-color);
   font-size-adjust: 20px;
   text-decoration: underline var(--tertiary-color);
@@ -113,6 +132,29 @@ a:hover {
   text-shadow: none;
 }
 
+footer {
+  background: var(--tertiary-color);
+  opacity: 0.8;
+}
+
 footer p {
   margin: 0 auto;
+  color: white;
+  text-shadow: 0.8px 0.8px black;
+}
+
+@media only screen and (max-width: 1700px) {
+  .carousel {
+    height: fit-content;
+  }
+
+  .carousel img {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .carousel,
+  #carousel-intro {
+    display: none;
+  }
 }

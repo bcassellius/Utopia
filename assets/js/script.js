@@ -22,6 +22,7 @@ function saveLocation() {
 
   if (!searchedLocation) {
     // tell the user to enter a city
+
     return;
   } else {
     localStorage.setItem(`Search Location`, searchedLocation);
@@ -75,8 +76,7 @@ function findSearchLocation() {
           location.href = './index2.html';
         });
       } else {
-        $('#currency-modal-content').text(`Please select a currency before searching.`);
-        return;
+        $(`.city-card-details`).text(`Sorry, something went wrong`);
       }
     });
   }
