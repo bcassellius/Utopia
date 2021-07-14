@@ -1,15 +1,23 @@
 let searchLocation = localStorage.getItem(`Search Location`);
 let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ&location=${searchLocation}`;
 
-$(`#city-name`).text(searchLocation);
-$(`.find-out-more`).text(`FIND OUT MORE ABOUT ${searchLocation}`);
-$(`.find-out-more`).attr(`href`, `https://en.wikipedia.org/wiki/${searchLocation}`);
+if (searchLocation === ``) {
+  $(`#city-name`).text(`:(`);
+  $(`.card-content`).text(`Sorry, we couldn't find that city, but here are some cool travel photos.`);
+  $(`.find-out-more`).text(``);
+} else {
+  $(`#city-name`).text(searchLocation);
+  $(`.find-out-more`).text(`FIND OUT MORE ABOUT ${searchLocation}`);
+  $(`.find-out-more`).attr(`href`, `https://en.wikipedia.org/wiki/${searchLocation}`);
+  displayImages();
+  collectCityData();
+}
 
-const apiKey = 'd062b7cc2ea4bdcd13c368fce11ee8b1'; // Bri's APIkey
 // const apiKey = '5569f0d8093687922f5c0ba190e02e6c'; // Olga's APIkey
 
 function collectCityData() {
   const forecast = $('#city-name').text();
+  const apiKey = 'd062b7cc2ea4bdcd13c368fce11ee8b1'; // Bri's APIkey
   let URL = `https://api.openweathermap.org/data/2.5/weather?q=${forecast}&units=imperial&appid=${apiKey}`;
   fetch(URL).then(function (response) {
     if (response.ok) {
@@ -93,12 +101,16 @@ function displayImages() {
     },
   })
     .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      $(`.hi`).attr(`src`, result.photos[0].src.landscape);
-      for (i = 1; i < 6; i++) {
-        let pi;
-        $(`.slider-images`)[i - 1].setAttribute(`src`, result.photos[i + 1].src.landscape);
+    .then((data) => {
+      if (data.photos[0] === undefined) {
+        $(`.no-images-found`).click();
+        return;
+      } else {
+        $(`.hi`).attr(`src`, data.photos[0].src.landscape);
+        for (i = 1; i < 6; i++) {
+          let pi;
+          $(`.slider-images`)[i - 1].setAttribute(`src`, data.photos[i + 1].src.landscape);
+        }
       }
     });
 }
@@ -110,8 +122,8 @@ function findSearchLocation() {
   let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchLocation}`;
 
   if (!searchLocation) {
-    $(`.modal-trigger`).click();
-    return;
+    $(`.unfound-city`).click();
+    // return;
   } else {
     fetch(geoFinderApi).then((response) => {
       if (response.ok) {
@@ -130,31 +142,31 @@ function findSearchLocation() {
 }
 
 $(`.search-button`).on(`click`, (event) => {
-    event.preventDefault();
-    let searchNewLocation = $('#search').val();
-    key = `M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ`; // lashaun's key
+  event.preventDefault();
+  let searchNewLocation = $('#search').val();
+  key = `M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ`; // lashaun's key
 
-    let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchNewLocation}`;
-  
-    if (!searchNewLocation) {
-      $(`.modal-trigger`).click();
-      return;
-    } else {
-      fetch(geoFinderApi).then((response) => {
-        if (response.ok) {
-          response.json().then((data) => {
-            searchNewLocation = data.results[0].locations[0].adminArea5;
-            console.log(searchNewLocation);
-            localStorage.setItem(`Search Location`, searchNewLocation);
-  
-            $('#search').val();
-  
-            collectCityData();
-            location.reload();
-          });
-        }
-      });
-    }
+  let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchNewLocation}`;
+
+  if (!searchNewLocation) {
+    $(`.modal-trigger`).click();
+    return;
+  } else {
+    fetch(geoFinderApi).then((response) => {
+      if (response.ok) {
+        response.json().then((data) => {
+          searchNewLocation = data.results[0].locations[0].adminArea5;
+          console.log(searchNewLocation);
+          localStorage.setItem(`Search Location`, searchNewLocation);
+
+          $('#search').val();
+
+          collectCityData();
+          location.reload();
+        });
+      }
+    });
+  }
 });
 
 $(document).ready(function () {
@@ -171,6 +183,3 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('.modal').modal();
 });
-
-displayImages();
-collectCityData();

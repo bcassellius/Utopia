@@ -31,8 +31,18 @@ nav a.sidenav-trigger i {
   margin: 20px 0;
 }
 
-.forcast-container|h3 {
+.forcast-container h3 {
   font-size: 30px;
+}
+
+.card .card-image .card-title {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  padding: 24px;
+  font-size: xxx-large;
 }
 
 .travel-sites {
@@ -50,4 +60,8 @@ nav a.sidenav-trigger i {
 
 .modal-trigger {
   display: none;
+}
+
+.modal-content {
+  font-size: 20px;
 }
