@@ -39,15 +39,20 @@ function updateCurrencyModal() {
   fetch(currencyConverterApi)
     .then((response) => response.json())
     .then(function (data) {
-      console.log(data);
       let newCurrencyName = $(`.select-dropdown`).val().slice(3).replace(`(`, ``).replace(`)`, ``);
 
-      $(`#currency-search-title`).text(newCurrencyName);
+      console.log($(`#currency-amount`).val());
+      if (newCurrencyName === `ose the currency` || $(`#currency-amount`).val() === ``) {
+        return;
+      } else {
+        $(`#currency-search-title`).text(newCurrencyName);
 
-      let userCurrency = data.geoplugin_currencyCode;
-      let convertedCurrency = data.geoplugin_currencyConverter.toFixed(2);
-      console.log(convertedCurrency);
-      $('#currency-modal-content').text(`${currencyAmount} ${newCurrencyName}  is worth ${convertedCurrency * currencyAmount} ${userCurrency}.`);
+        let userCurrency = data.geoplugin_currencyCode;
+        let convertedCurrency = data.geoplugin_currencyConverter;
+        let convertedTotal = (convertedCurrency * currencyAmount).toFixed(2);
+
+        $('#currency-modal-content').text(`${currencyAmount} ${newCurrencyCode}  is worth ${convertedTotal} ${userCurrency}.`);
+      }
     });
 }
 $(`#currency-search-button`).on(`click`, updateCurrencyModal);
