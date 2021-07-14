@@ -129,9 +129,32 @@ function findSearchLocation() {
   }
 }
 
-$(`.search-button`).on(`click`, () => {
-  event.preventDefault();
-  findSearchLocation();
+$(`.search-button`).on(`click`, (event) => {
+    event.preventDefault();
+    let searchNewLocation = $('#search').val();
+    key = `M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ`; // lashaun's key
+
+    let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchNewLocation}`;
+  
+    if (!searchNewLocation) {
+      $(`.modal-trigger`).click();
+      return;
+    } else {
+      fetch(geoFinderApi).then((response) => {
+        if (response.ok) {
+          response.json().then((data) => {
+            searchNewLocation = data.results[0].locations[0].adminArea5;
+            console.log(searchNewLocation);
+            localStorage.setItem(`Search Location`, searchNewLocation);
+  
+            $('#search').val();
+  
+            collectCityData();
+            location.reload();
+          });
+        }
+      });
+    }
 });
 
 $(document).ready(function () {
