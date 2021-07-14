@@ -149,9 +149,5 @@ $(document).ready(function () {
   $('.modal').modal();
 });
 
-// displayImages();
-// collectCityData();
-
-// document.ready(() => {
-//   $(`#no-search`).trigger(`click`);
-// });
+displayImages();
+collectCityData();

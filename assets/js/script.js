@@ -21,16 +21,12 @@ function saveLocation() {
   let searchedLocation = $(`#city-search`).val();
 
   if (!searchedLocation) {
-    // tell the user to enter a city
-
     return;
   } else {
     localStorage.setItem(`Search Location`, searchedLocation);
     location.href = './index2.html';
   }
 }
-
-// $(`#city-search-button`).on(`click`, saveLocation);
 
 function updateCurrencyModal() {
   let currencyAmount = $(`#currency-amount`).val().trim();
@@ -65,7 +61,6 @@ function findSearchLocation() {
   let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchLocation}`;
 
   if (!searchLocation) {
-    // please enter a location
     return;
   } else {
     fetch(geoFinderApi).then((response) => {
