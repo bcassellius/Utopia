@@ -143,7 +143,7 @@ footer p {
   text-shadow: 0.8px 0.8px black;
 }
 
-@media only screen and (max-width: 1700px) {
+@media only screen and (max-width: 1400px) {
   .carousel {
     height: fit-content;
   }
