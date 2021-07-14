@@ -29,7 +29,7 @@ function saveLocation() {
 }
 
 function updateCurrencyModal() {
-  let currencyAmount = $(`#currency-amount`).val().trim();
+  let currencyAmount = $(`#currency-amount`).val().trim().replace(/,/g, '');
   let newCurrencyCode = $(`.select-dropdown`).val().slice(0, 3);
   let currencyConverterApi = `http://www.geoplugin.net/json.gp?base_currency=${newCurrencyCode}`;
 
