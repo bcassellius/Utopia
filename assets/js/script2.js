@@ -37,7 +37,7 @@ function collectCityData() {
         <div>
         <ul class="list-group list-group-flush">
         <li class="list-group-item date">${forcastdate}</li>
-        <img class="list-group-item weather-icon" src="http://openweathermap.org/img/wn/${look}@2x.png" alt="">
+        <img class="list-group-item weather-icon" src="https://openweathermap.org/img/wn/${look}@2x.png" alt="">
         <li class="list-group-item temp">Temp: ${temp}&#8457</li>
         <li class="list-group-item wind">Wind: ${wind} MPH</li>
         <li class="list-group-item humidity">Humidity: ${humidity}%</li>
