@@ -26,6 +26,7 @@ This is a website application that allows a user to search for information on an
   - pexels api
   - mapquest api
   - openweathermap api
+  - geoplugin api
 
 
 ## Website URL
