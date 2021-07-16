@@ -31,11 +31,12 @@ function saveLocation() {
 function updateCurrencyModal() {
   let currencyAmount = $(`#currency-amount`).val().trim().replace(/,/g, '');
   let newCurrencyCode = $(`.select-dropdown`).val().slice(0, 3);
-  let currencyConverterApi = `https://www.geoplugin.net/json.gp?base_currency=${newCurrencyCode}`;
+  let currencyConverterApi = `http://www.geoplugin.net/json.gp?base_currency=${newCurrencyCode}`;
 
   fetch(currencyConverterApi)
     .then((response) => response.json())
     .then(function (data) {
+      console.log(data);
       let newCurrencyName = $(`.select-dropdown`).val().slice(3).replace(`(`, ``).replace(`)`, ``);
 
       console.log($(`#currency-amount`).val());
