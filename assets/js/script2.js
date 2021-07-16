@@ -1,5 +1,5 @@
 let searchLocation = localStorage.getItem(`Search Location`);
-let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ&location=${searchLocation}`;
+let geoFinderApi = `https://open.mapquestapi.com/geocoding/v1/address?key=M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ&location=${searchLocation}`;
 
 if (searchLocation === ``) {
   $(`#city-name`).text(`:(`);
@@ -119,7 +119,7 @@ function findSearchLocation() {
   let searchLocation = $(`#search`).val();
   key = `M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ`; // lashaun's key
 
-  let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchLocation}`;
+  let geoFinderApi = `https://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchLocation}`;
 
   if (!searchLocation) {
     $(`.unfound-city`).click();
@@ -146,7 +146,7 @@ $(`.search-button`).on(`click`, (event) => {
   let searchNewLocation = $('#search').val();
   key = `M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ`; // lashaun's key
 
-  let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchNewLocation}`;
+  let geoFinderApi = `https://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchNewLocation}`;
 
   if (!searchNewLocation) {
     $(`.modal-trigger`).click();

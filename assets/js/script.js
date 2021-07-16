@@ -31,7 +31,7 @@ function saveLocation() {
 function updateCurrencyModal() {
   let currencyAmount = $(`#currency-amount`).val().trim().replace(/,/g, '');
   let newCurrencyCode = $(`.select-dropdown`).val().slice(0, 3);
-  let currencyConverterApi = `http://www.geoplugin.net/json.gp?base_currency=${newCurrencyCode}`;
+  let currencyConverterApi = `https://www.geoplugin.net/json.gp?base_currency=${newCurrencyCode}`;
 
   fetch(currencyConverterApi)
     .then((response) => response.json())
@@ -58,7 +58,7 @@ function findSearchLocation() {
   let searchLocation = $(`#city-search`).val();
   key = `M6cWf6SB2TBYZpZZyd6wL6kpI31d0emQ`; // lashaun's key
 
-  let geoFinderApi = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchLocation}`;
+  let geoFinderApi = `https://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchLocation}`;
 
   if (!searchLocation) {
     return;
