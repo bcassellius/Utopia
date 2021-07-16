@@ -36,10 +36,8 @@ function updateCurrencyModal() {
   fetch(currencyConverterApi)
     .then((response) => response.json())
     .then(function (data) {
-      console.log(data);
       let newCurrencyName = $(`.select-dropdown`).val().slice(3).replace(`(`, ``).replace(`)`, ``);
 
-      console.log($(`#currency-amount`).val());
       if (newCurrencyName === `ose the currency` || $(`#currency-amount`).val() === ``) {
         return;
       } else {

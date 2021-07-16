@@ -129,7 +129,6 @@ function findSearchLocation() {
       if (response.ok) {
         response.json().then((data) => {
           searchLocation = data.results[0].locations[0].adminArea5;
-          console.log(searchLocation);
           localStorage.setItem(`Search Location`, searchLocation);
 
           $(`#search`).val(``);
@@ -156,7 +155,6 @@ $(`.search-button`).on(`click`, (event) => {
       if (response.ok) {
         response.json().then((data) => {
           searchNewLocation = data.results[0].locations[0].adminArea5;
-          console.log(searchNewLocation);
           localStorage.setItem(`Search Location`, searchNewLocation);
 
           $('#search').val();
