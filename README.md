@@ -19,7 +19,9 @@ This is a website application that allows a user to search for information on an
 
 
 ## Built With
+- HTTP
 - JavaScript
+- JQuery
 - Materialize
 - Open APIs
   - here api
