@@ -31,7 +31,7 @@ function saveLocation() {
 function updateCurrencyModal() {
   let currencyAmount = $(`#currency-amount`).val().trim().replace(/,/g, '');
   let newCurrencyCode = $(`.select-dropdown`).val().slice(0, 3);
-  let currencyConverterApi = `https://ssl.geoplugin.net/json.gp?base_currency=${newCurrencyCode}k=054e2aef60a55089`;
+  let currencyConverterApi = `https://ssl.geoplugin.net/json.gp?base_currency=${newCurrencyCode}&k=054e2aef60a55089`;
 
   fetch(currencyConverterApi)
     .then((response) => response.json())
