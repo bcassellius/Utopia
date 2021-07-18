@@ -19,7 +19,7 @@ This is a website application that allows a user to search for information on an
 
 
 ## Built With
-- HTTP
+- html
 - JavaScript
 - JQuery
 - Materialize
