@@ -32,7 +32,8 @@ This is a website application that allows a user to search for information on an
 
 
 ## Website URL
-https://corpraider.github.io/Utopia2
+https://bcassellius.github.io/Utopia/
+
 
 ## Contributions
 - Olga Smolyakova
