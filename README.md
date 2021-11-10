@@ -3,7 +3,7 @@
 ## Description
 ![image](https://user-images.githubusercontent.com/83994997/125690558-d726e223-817b-44ad-bdaf-b90de8e83826.png)
 <br><br>
-This is a website application that allows a user to search for information on any city. The user can use the attached continent links to search for the largest cities, giving an idea on where to travel. The user can also type in the city name to learn the local weather, currency exhange rate, hotels, resteraunts, and see images from the location. The following show some of the features on the website.
+This is a website application that allows a user to search for information on any city. The user can use the attached continent links to search for the largest cities, giving an idea on where to travel. The user can also type in the city name to learn the local weather, currency exhange rate, hotels, restaurants, and see images from the location. The following show some of the features on the website.
 <br>
 <br>
 ## Website Features
